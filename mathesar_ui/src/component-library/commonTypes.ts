@@ -1,5 +1,4 @@
 export type Appearance =
-  | 'default'
   | 'primary'
   | 'secondary'
   | 'plain'
@@ -9,7 +8,9 @@ export type Appearance =
   | 'danger'
   | 'link'
   | 'custom'
-  | 'tip';
+  | 'tip'
+  | 'control'
+  | 'input';
 
 export type Size = 'small' | 'medium' | 'large';
 
