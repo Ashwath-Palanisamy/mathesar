@@ -34,7 +34,7 @@
   );
 </script>
 
-<SheetPositionableCell index={0} columnSpan={processedColumnsMap.size + 1}>
+<SheetPositionableCell index={0} columnSpan={processedColumnsMap.size + 1} stickToLeft>
   <div class="group-header">
     <div class="groups-data">
       {#each columnIds as columnId, index (columnId)}

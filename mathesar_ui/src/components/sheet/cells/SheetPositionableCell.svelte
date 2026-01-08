@@ -6,6 +6,8 @@
 
   export let index: number;
   export let columnSpan = 1;
+  /** When true, keeps the cell pinned to the left while horizontally scrolling */
+  export let stickToLeft = false;
 
   function calculateStyle(
     _columnStyleMap: Map<unknown, ColumnPosition>,
@@ -20,6 +22,11 @@
     endEntry = endEntry ?? columnStyleValues[columnStyleValues.length - 1];
     const width = endEntry ? endEntry.left + endEntry.width - left : 0;
 
+    if (stickToLeft) {
+      // Inline styles here intentionally override default absolute positioning
+      // to pin the element to the sheet's left viewport edge while preserving width.
+      return `position: sticky; left: 0; width: ${width}px; z-index: var(--z-index__sheet__positionable-cell);`;
+    }
     return `left: ${left}px; width: ${width}px`;
   }
 
